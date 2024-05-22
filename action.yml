@@ -1,0 +1,11 @@
+name: "Validate copyright headers"
+description: "This action checks if files in selected folders have up to date copyright headers"
+inputs:
+  dirs:
+    description: "Comma separated list of folders to check"
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: ${{ github.action_path }}/check.py ${{ inputs.dirs }}
