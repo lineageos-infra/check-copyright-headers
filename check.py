@@ -8,7 +8,7 @@ ret = 0
 year = str(date.today().year)
 
 for line in subprocess.getoutput("git diff --name-status HEAD~").splitlines():
-    status, path = line.split("\t", 1)
+    status, path = line.split(maxsplit=1)
 
     # Skip deleted file
     if status == "D":
